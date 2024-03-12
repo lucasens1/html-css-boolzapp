@@ -14,6 +14,10 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'PT Sans';
+}
+
 img{
     max-width: 100%;
     object-fit: cover;
@@ -49,6 +53,10 @@ img{
 
 .pd-xy-8 {
     padding: 8px;
+}
+
+.pd-r-10{
+    padding-right: 10px;
 }
 
 .cursor-y {
@@ -97,6 +105,25 @@ img{
     display: block;
 }
 
+/*POSITION*/
+.abs{
+    position: absolute;
+}
+
+.rel{
+    position: relative;
+}
+
+.top-r{
+    top:0;
+    right: 0;
+}
+
+.btm-r {
+    bottom: 0;
+    right: 0;
+}
+
 /*APPROCCIO MOBILE-FIRST*/
 
 /*MACRO LAYOUTING*/
@@ -113,9 +140,6 @@ img{
     width: 100vw;
     height: 100vh;
     display: flex;
-    /*DEBUG*/
-    background-color: var(--blue);
-    border: 3px solid yellow;
 }
 /*Parte Sx e Dx */
 .webapp-col-left{
@@ -227,6 +251,10 @@ img{
     background-color: #ffffff;
 }
 
+.smiley{
+    display: none;
+}
+
 .no-bord{
     border: none;
     width: 80%;
@@ -264,7 +292,11 @@ img{
 
     .msg-receiver,
     .msg-sender {
-        width: 55%;
+        width: 65%;
+    }
+
+    .smiley{
+        display: block;
     }
 
     .header-ui{
@@ -329,6 +361,7 @@ img{
 
     #left-icons{
         display: flex;
+        margin-right: 10px;
     }
 
     .chats{
@@ -346,6 +379,11 @@ img{
         justify-content: space-between;
         width: 80%;
     }
+
+    .chat-left span:nth-child(2n+0){
+        color: #9c9c9c;
+    }
+
     .notify{
         display: flex;
         flex-direction: row;
@@ -357,6 +395,10 @@ img{
 
     .ntfy-lft{
         width: 18%;   
+    }
+
+    .ntfy-lft span{
+        color: #8edafc;
     }
 
     .ntfy-right{
@@ -373,6 +415,10 @@ img{
 
     .searchbar > input{
         width: 80%;
+    }
+
+    .chat-txt{
+        padding: 40px;
     }
 
 }
