@@ -13,6 +13,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+img{
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.img-block,
+.profile-img,
+.img-contact{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
 /*UTILITIES*/
 .mrg-b-10 {
     margin-bottom: 10px;
@@ -31,9 +47,56 @@
     padding: 20px;
 }
 
+.pd-xy-8 {
+    padding: 8px;
+}
+
+.cursor-y {
+    cursor: pointer;
+}
+
+/*TEXT FORMATTING*/
 .txt-s-m {
     font-size: 0.9rem;
 }
+
+.txt-a-c{
+    text-align: center;
+}
+
+.bold{
+    font-weight: 800;
+}
+
+.light-grey{
+    color: lightslategray;
+}
+
+.border-rad{
+    border-radius: 50%;
+}
+
+.bg-icon{
+    background-color: azure;
+}
+
+.font-size-b{
+    font-size: 1.2rem;
+}
+
+.font-smaller{
+    font-size: 0.8rem;
+}
+
+.underlined{
+    text-decoration: underline;
+}
+
+/*Display*/
+.block{
+    display: block;
+}
+
 /*APPROCCIO MOBILE-FIRST*/
 
 /*MACRO LAYOUTING*/
@@ -44,7 +107,6 @@
 
     /*DEBUG*/
     background-color: var(--bg-generic);
-    border: 3px solid black;
 }
 
 .webapp-ui{
@@ -59,8 +121,22 @@
 .webapp-col-left{
     display: none;
     max-height: 100%;
-    border: 3px solid green;
     overflow: scroll;
+}
+
+.chats{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.chat-left{
+    display: flex;
+    flex-direction: column;
+}
+.chat-right{
+    font-size: 0.7rem;
 }
 
 .webapp-col-right{
@@ -69,13 +145,13 @@
     flex-direction: column;
 }
 
+
 /*Header per entrambi Sx e Dx*/
 .header-ui{
     width: 100%;
     min-height: 60px;
     padding: 10px;
-    background-color: var(--blue-header);
-    border: 1px solid black;
+    background-color: #eaeaea;
 }
 
 .icons-head{
@@ -86,7 +162,6 @@
 .header-left{
     width: 100%;
     height: 40px;
-    background-color: aquamarine;
     display: flex;
 }
 .header-right{
@@ -98,19 +173,22 @@
     display: block;
     height: 40px;
     width: 40px;
-    background-color: coral;
+    
 }
 
 .contact-info{
     display: block;
     height: 40px;
     width: calc(100% - 40px);
-    background-color: yellowgreen;
+}
+
+.chat-name-msg{
+    display: none;
 }
 
 /* Header right */
 
-/* Chat Formatting */
+/* Chat  */
 .chat-txt{
     /*flex prop*/
     display: flex;
@@ -129,6 +207,7 @@
     background-color: #caf7a8;
     align-self: self-end;
     border-radius: 15px;
+    box-shadow: 5px 5px 5px #888888;
 }
 
 .msg-receiver{
@@ -136,14 +215,36 @@
     background-color: #ffffff;
     align-self: self-start;
     border-radius: 15px;
+    box-shadow: -5px 5px 5px #888888;
 }
 
 .insert-msg{
+    display: flex;
+    justify-content: flex-start;
     height: 45px;
     width: 100%;
-    background-color: #c152c8;
+    padding: 10px;
+    background-color: #ffffff;
 }
 
+.no-bord{
+    border: none;
+    width: 80%;
+}
+
+#left-icons{
+    display: none;
+}
+
+.notify{
+    display: none;
+}
+
+.searchbar{
+    display: none;
+}
+
+/*LAYOUT IN TABLET MODE*/
 @media screen and (min-width : 768px) {
     .webapp-col-left{
         display: block;
@@ -151,18 +252,14 @@
         height: 100vh;
     }
 
-    .ntfy-right{
-        display: none;
+    #profile{
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid rgba(168, 167, 167, 0.322);
     }
 
-    .searchbar{
-        display: none;
-    }
     .chats .contact .img-contact{
-        display: block;
-        width: 100%;
-        height: 10vh;
-        border: 1px solid white;   
+        display: block;                
     }
 
     .msg-receiver,
@@ -183,73 +280,99 @@
 
     .header-right{
         width: 20%;
-        display: block;
+        display: flex;
+        justify-content: end;
+        padding-right: 10px;
+    }
+
+
+    .icons-head{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 50px;
         height: 40px;
-        background-color: steelblue;
+        color: #9c9c9c;
     }
 
     .header-left {
         width: 50%;
     }
+
+    .chats{
+        background-color: white;
+    }
 }
 
+/*LAYOUT IN DESKTOP MODE*/
 @media screen and (min-width : 992px){
-    .webapp-col-left{
-        width: 30%;
+
+    .webapp-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .icons-head{
-        display: block;
-        width: 50px;
-        height: 40px;
-        background-color: white;
+    #profile{
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .webapp-ui{
+        height: 95%;
+        width: 75%;
+    }
+
+    .webapp-col-left{
+        min-width: 40vh;
+    }
+
+    #left-icons{
+        display: flex;
     }
 
     .chats{
         width: 100%;
-        background-color: black;
     }
 
     .contact {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        width: 100%;
     }
-
-    .chats .contact .img-contact{
-        width: 30%;
-    }
-
-    .chat-name-msg {
-        display: block;
-        width: 60%;
-        height: 100%;
-        border: 1px solid yellow;
+    
+    .chat-name-msg{
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
     }
     .notify{
-        height: 40px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        padding: 8px;
+        background-color: #8edafc;
     }
 
     .ntfy-lft{
-        width: 15%;
-        border: 1px solid red;
+        width: 18%;   
     }
 
     .ntfy-right{
         display: block;
-        height: 40px;
         width: 80%;
-        border: 1px solid salmon;
+        padding: 5px;
     }
 
     .searchbar{
         display: block;
+        width: 100%;
+        background-color: white;
     }
 
-    .chat-name-msg{
-        display: block;
+    .searchbar > input{
+        width: 80%;
     }
 
 }
