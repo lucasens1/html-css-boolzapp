@@ -131,15 +131,14 @@ img{
 .webapp-container{
     width: 100vw;
     height: 100vh;
-
-    /*DEBUG*/
-    background-color: var(--bg-generic);
+    background: linear-gradient(to top, #a9aaa8, #d9dbd5 50%, #eee 75%, #009688 75%);
 }
 
 .webapp-ui{
     width: 100vw;
     height: 100vh;
     display: flex;
+    box-shadow: 5px 5px 5px #5e5d5d96;
 }
 /*Parte Sx e Dx */
 .webapp-col-left{
